@@ -1,26 +1,29 @@
 //
-// Created by Lakshya Mittal on 17-12-2021.
+// Created by Shinoy Sarkar on 25-03-2023.
 //
 
 #include <bits/stdc++.h>
-//#include "Model/RubiksCube3dArray.cpp"
+#include "Model/RubiksCube.h"
+#include "Model/RubiksCube.cpp"
+#include "Model/RubiksCube3dArray.cpp"
 //#include "Model/RubiksCube1dArray.cpp"
 //#include "Model/RubiksCubeBitboard.cpp"
 #include "Solver/DFSSolver.h"
-#include "Solver/BFSSolver.h"
-#include "Solver/IDDFSSolver.h"
-#include "Solver/IDAstarSolver.h"
+// #include "Solver/BFSSolver.h"
+// #include "Solver/IDDFSSolver.h"
+// #include "Solver/IDAstarSolver.h"
 //#include "PatternDatabases/CornerPatternDatabase.h"
-#include "PatternDatabases/CornerDBMaker.h"
+//#include "PatternDatabases/CornerDBMaker.h"
 
 using namespace std;
 
 int main() {
-//    RubiksCube3dArray object3DArray;
+    cout<<"1"<<endl;
+   // RubiksCube3dArray object3DArray;
 //    RubiksCube1dArray object1dArray;
 //    RubiksCubeBitboard objectBitboard;
 //
-//    object3DArray.print();
+    //object3DArray.print();
 //
 //    if (object3DArray.isSolved()) cout << "SOLVED\n\n";
 //    else cout << "NOT SOLVED\n\n";
@@ -180,20 +183,20 @@ int main() {
 //
 
 // DFS Solver Testing __________________________________________________________________________________________
-//    RubiksCube3dArray cube;
-//    cube.print();
-//
-//    vector<RubiksCube::MOVE> shuffle_moves = cube.randomShuffleCube(6);
-//    for (auto move: shuffle_moves) cout << cube.getMove(move) << " ";
-//    cout << "\n";
-//    cube.print();
-//
-//    DFSSolver<RubiksCube3dArray, Hash3d> dfsSolver(cube, 8);
-//    vector<RubiksCube::MOVE> solve_moves = dfsSolver.solve();
-//
-//    for (auto move: solve_moves) cout << cube.getMove(move) << " ";
-//    cout << "\n";
-//    dfsSolver.rubiksCube.print();
+   RubiksCube3dArray cube;
+   cube.print();
+
+   vector<RubiksCube::MOVE> shuffle_moves = cube.randomShuffleCube(10);
+   for (auto move: shuffle_moves) cout << cube.getMove(move) << " ";
+   cout << "\n";
+   cube.print();
+
+   DFSSolver<RubiksCube3dArray, Hash3d> dfsSolver(cube, 8);
+   vector<RubiksCube::MOVE> solve_moves = dfsSolver.solve();
+
+   for (auto move: solve_moves) cout << cube.getMove(move) << " ";
+   cout << "\n";
+   dfsSolver.rubiksCube.print();
 
 
 //BFS Solver -----------------------------------------------------------------------------------------------------
@@ -271,18 +274,18 @@ int main() {
 //    CornerDBMaker dbMaker(fileName, 0x99);
 //    dbMaker.bfsAndStore();
 
-    RubiksCubeBitboard cube;
-    auto shuffleMoves = cube.randomShuffleCube(13);
-    cube.print();
-    for (auto move: shuffleMoves) cout << cube.getMove(move) << " ";
-    cout << "\n";
+    //RubiksCubeBitboard cube;
+    // auto shuffleMoves = cube.randomShuffleCube(13);
+    // cube.print();
+    // for (auto move: shuffleMoves) cout << cube.getMove(move) << " ";
+    // cout << "\n";
 
-    IDAstarSolver<RubiksCubeBitboard, HashBitboard> idaStarSolver(cube, fileName);
-    auto moves = idaStarSolver.solve();
+    // IDAstarSolver<RubiksCubeBitboard, HashBitboard> idaStarSolver(cube, fileName);
+    // auto moves = idaStarSolver.solve();
 
-    idaStarSolver.rubiksCube.print();
-    for (auto move: moves) cout << cube.getMove(move) << " ";
-    cout << "\n";
+    // idaStarSolver.rubiksCube.print();
+    // for (auto move: moves) cout << cube.getMove(move) << " ";
+    // cout << "\n";
 
 
     return 0;
